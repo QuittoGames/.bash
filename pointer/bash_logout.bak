@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Bootstrap for logout
+source "$HOME/.bash/.bash_logout"

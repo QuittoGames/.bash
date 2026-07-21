@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# Bootstrap file: redirects the system Bash startup to the custom configuration
+# stored inside ~/.bash, keeping the default ~/.bashrc path compatible.
+source "$HOME/.bash/.bashrc"

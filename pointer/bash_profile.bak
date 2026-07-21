@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Bootstrap for login shells
+source "$HOME/.bash/.bashrc"
