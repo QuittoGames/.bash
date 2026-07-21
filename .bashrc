@@ -6,18 +6,32 @@ case $- in
     *) return;;
 esac
 
-# Path to your oh-my-bash installation.
 export OSH='/home/quitto/.oh-my-bash'
-export OSH_CUSTOM="$HOME/.config"
+export OSH_CUSTOM="$HOME/.bash"
 
-export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.cargo/bin:/usr/local/bin:$PATH"
+export PATH="$PATH:/run/media/quitto/DATA/Projects/Python/ProjectSetup-3.0"
+export PATH="$PATH:/home/quitto/.spicetify"
+export PATH="$PATH:/home/quitto/.local/bin"
+export PATH="$HOME/.npm-global/bin:$PATH"
+export PATH="$HOME/.opencode/bin:$PATH"
+
+export HISTFILE="$HOME/.bash/.bash_history"
+export HISTSIZE=100000
+export HISTFILESIZE=200000
+
+export EDITOR="code --wait"
+export VISUAL="$EDITOR"
+
+export LESS='-R'
+
+# Commands
 
 alias spotify="flatpak run com.spotify.Client"
 alias update="sudo dnf -y update --refresh && sudo dnf -y upgrade &&  flatpak update --appstream && flatpak update -y && pip install --upgrade pip"
 alias steam="flatpak run com.valvesoftware.Steam"
 alias gwindows='read -p "Reiniciar agora? (y/N): " c && [[ $c == y ]] && sudo reboot'
-alias ps3="sudo mount /dev/sdb1 /mnt/ps3 2>/dev/null; (cd '/run/media/quitto/DATA/Projects/Python/ProjectSetup-3.0' && bash ps3.sh)"
+alias ps3='(cd /usr/bin/ProjectSetup-3.0 && ./ps3.sh)'
 alias cls="clear"
 alias explorer="fd --type f | fzf"
 alias bashrc="code $HOME/.bash/.bashrc"
@@ -40,21 +54,9 @@ fi
 
 ssh-add -l >/dev/null 2>&1 || { [[ -f ~/.ssh/git_hub_key ]] && ssh-add ~/.ssh/git_hub_key; }
 
-#Hystory
-export HISTFILE="$HOME/.bash/.bash_history"
-export HISTSIZE=100000
-export HISTFILESIZE=200000
-
 shopt -s histappend
 
 PROMPT_COMMAND="history -a"
-
-# IDE
-export EDITOR="code --wait"
-export VISUAL="$EDITOR"
-
-# Read
-export LESS='-R'
 
 # Functions
 
@@ -113,7 +115,7 @@ flatup() {
   echo "Flatpak atualizado e limpo! ✅"
 }
 
-clean_system() {
+cleansys() {
   echo "Limpando cache do sistema..."
   sudo dnf clean all
   echo "Limpo! ✅"
@@ -181,8 +183,6 @@ ssh_create() {
 }
 
 # Utils
-
-# Docker Utils
 
 # Add Modules
 
@@ -336,11 +336,3 @@ plugins=(
 # Example aliases
 # alias bashconfig="mate ~/.bashrc"
 # alias ohmybash="mate ~/.oh-my-bash"
-export PATH="$PATH:/run/media/quitto/DATA/Projects/Python/ProjectSetup-3.0"
-export PATH="$PATH:/run/media/quitto/DATA/Projects/Python/ProjectSetup-3.0"
-
-export PATH=$PATH:/home/quitto/.spicetify
-
-# Created by `pipx` on 2026-02-04 22:16:58
-export PATH="$PATH:/home/quitto/.local/bin"
-export PATH="$HOME/.npm-global/bin:$PATH"

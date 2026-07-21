@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Bridge: sources the .sh bootstrap
+source "$HOME/.bashrc.sh"

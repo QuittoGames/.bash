@@ -8,9 +8,9 @@ para a configuração real dentro de `~/.bash/`.
 
 | Arquivo-ponte (em $HOME) | Redireciona para            | Quando é chamado                          |
 |---------------------------|-----------------------------|-------------------------------------------|
-| `~/.bashrc`               | `~/.bash/.bashrc`           | Shells interativos não-login (terminais)  |
-| `~/.bash_profile`         | `~/.bash/.bashrc`           | Shells de login (SSH, tty, su -)          |
-| `~/.bash_logout`          | `~/.bash/.bash_logout`      | Ao sair de um shell de login              |
+| `~/.bashrc`               | `~/.bashrc.sh` → `~/.bash/.bashrc`           | Shells interativos não-login (terminais)  |
+| `~/.bash_profile`         | `~/.bash_profile.sh` → `~/.bash/.bashrc`     | Shells de login (SSH, tty, su -)          |
+| `~/.bash_logout`          | `~/.bash_logout.sh` → `~/.bash/.bash_logout` | Ao sair de um shell de login              |
 
 ## Por que existe
 
@@ -34,16 +34,19 @@ Isso permite:
 bash (login):
   /etc/profile
     └── ~/.bash_profile (ponte)
-          └── source ~/.bash/.bashrc
+          └── source ~/.bash_profile.sh
+                └── source ~/.bash/.bashrc
 
 bash (interactive non-login):
   /etc/bashrc
     └── ~/.bashrc (ponte)
-          └── source ~/.bash/.bashrc
+          └── source ~/.bashrc.sh
+                └── source ~/.bash/.bashrc
 
 logout:
   ~/.bash_logout (ponte)
-    └── source ~/.bash/.bash_logout
+    └── source ~/.bash_logout.sh
+          └── source ~/.bash/.bash_logout
 ```
 
 ## Backup
