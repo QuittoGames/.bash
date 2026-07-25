@@ -190,7 +190,7 @@ ssh_create() {
 source "$OSH"/oh-my-bash.sh
 
 # Coffee SDK
-source "$HOME/.coffe-sdk/coffe.sh"
+source "$HOME/.coffe-sdk-shell/coffe.sh"
 
 
 # If you set OSH_THEME to "random", you can ignore themes you don't like.
