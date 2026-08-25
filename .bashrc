@@ -28,7 +28,8 @@ export LESS='-R'
 # Commands
 
 alias spotify="flatpak run com.spotify.Client"
-alias update="sudo dnf -y update --refresh && sudo dnf -y upgrade &&  flatpak update --appstream && flatpak update -y && pip install --upgrade pip"
+# `update` agora é a rotina portátil definida em ~/.shell_common/update.sh
+# (fonte única, compartilhada com o zsh). Carregada abaixo, perto do Coffee SDK.
 alias steam="flatpak run com.valvesoftware.Steam"
 alias gwindows='read -p "Reiniciar agora? (y/N): " c && [[ $c == y ]] && sudo reboot'
 alias ps3='(cd /usr/bin/ProjectSetup-3.0 && ./ps3.sh)'
@@ -191,6 +192,9 @@ source "$OSH"/oh-my-bash.sh
 
 # Coffee SDK
 source "$HOME/.coffe-sdk-shell/coffe.sh"
+
+# Rotina de atualização (fonte única zsh+bash — vive no repo ~/.zsh)
+source "$HOME/.zsh/modules/update.sh"
 
 
 # If you set OSH_THEME to "random", you can ignore themes you don't like.
